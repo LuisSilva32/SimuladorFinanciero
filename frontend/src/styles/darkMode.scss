@@ -1,0 +1,254 @@
+.darkMode {
+    background-color: #141A28;
+    color: #ffffff;
+
+    .chartGrid {
+        stroke: rgba(228, 228, 228, 0.219);
+    }
+
+    // --------------- Modo oscuro Navbar ---------------
+    .navbar {
+        color: #ffffff;
+
+        .wrapper {
+
+            .search {
+                border-color: #1B2537;
+                background-color: #1B2537;
+                box-shadow: none;
+            }
+
+            .items {
+
+                .item {
+
+                    .bi {
+                        background-color: #1B2537;
+                        box-shadow: none;
+                    }
+                }
+
+                .item-user {
+
+                    .avatar {
+                        background-color: #1B2537;
+                        box-shadow: none;
+                    }
+                }
+            }
+        }
+    }
+
+    // -------------------------------------------------
+
+    // ----------- Modo oscuro sidebar -----------------
+    .sidebar {
+        background-color: #141A28;
+
+        .containerCenter {
+            ul {
+                .title {
+                    color: lightgray;
+                }
+
+                .link-sidebar {
+
+                    &:hover {
+                        background-color: #1B2537;
+                    }
+
+                    .bi {
+                        color: gray;
+                    }
+
+                    span {
+                        color: #999;
+                    }
+                }
+
+                .link-sidebar.active {
+                    background-color: #1B2537;
+                }
+            }
+        }
+
+        .containerLogout {
+            .link-sidebar {
+
+                &:hover {
+                    background-color: #1B2537;
+                }
+
+                .bi {
+                    color: gray;
+                }
+
+                span {
+                    color: #999;
+                }
+            }
+
+            .link-sidebar.active {
+                background-color: #1B2537;
+            }
+        }
+    }
+
+    // ------------------------------------------------
+
+    // ---------- Modo oscuro widgets ----------
+    .widget {
+        background-color: #1B2537;
+        box-shadow: none;
+
+        .right {
+
+            .percentage {
+
+                &.positive {
+                    color: #4cceac;
+                }
+
+                &.negative {
+                    color: crimson;
+                }
+            }
+        }
+    }
+
+    // -----------------------------------------
+
+    // --------- Modo oscuro featured ----------
+    .featured {
+        background-color: #1B2537;
+        box-shadow: none;
+    }
+
+    // ------------------------------------------
+
+    // -------- Modo oscuro chart ---------------
+    .chart {
+        background-color: #1B2537;
+        box-shadow: none;
+
+        .chartGrid {
+            stroke: #4cceab31;
+        }
+    }
+
+    // ------------------------------------------
+
+    // ----- Modo oscuro list-container-home -----
+    .home {
+
+        .homeContainer {
+
+            .list-container-home {
+                background-color: #1B2537;
+                box-shadow: none;
+
+                .status {
+                    &.Entregado {
+                        color: #4cceac;
+                    }
+
+                    &.Pendiente {
+                        color: rgb(178, 178, 0);
+                    }
+                }
+            }
+        }
+    }
+
+    // -------------------------------------------
+
+    // ---------- Modo oscuro datatable -----------
+    .datatable {
+
+        .header {
+
+            .search-container {
+
+                .bi {
+                    color: #ffffff;
+                }
+            }
+        }
+
+        .status {
+            &.Activo {
+                color: #ffffff;
+            }
+
+            &.Despedido {
+                color: #ffffff;
+            }
+
+            &.Inactivo {
+                color: #ffffff;
+            }
+        }
+    }
+
+    // --------------------------------------------
+
+    .list-container-resume-management-screen {
+        box-shadow: none;
+        background-color: #1B2537;
+    }
+
+    .new-employee-container {
+        background-color: #1B2537;
+        box-shadow: none;
+
+        &:hover {
+            box-shadow: none;
+        }
+
+        .title-container {
+
+            h1 {
+                color: #ffffff;
+            }
+        }
+
+        .new-employee-form {
+
+            .label-new-employee-form {
+                color: #ffffff;
+            }
+
+            .formCheck label {
+                color: #ffffff;
+            }
+        }
+    }
+
+    .new-product-container {
+        background-color: #1B2537;
+        box-shadow: none;
+
+        &:hover {
+            box-shadow: none;
+        }
+
+        .title-container {
+
+            h1 {
+                color: #ffffff;
+            }
+        }
+
+        .new-product-form {
+
+            .label-new-product-form {
+                color: #ffffff;
+            }
+
+            .formCheck label {
+                color: #ffffff;
+            }
+        }
+    }
+
+}
