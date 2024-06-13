@@ -80,3 +80,11 @@ class UserController:
             return jsonify({'message': '¡Usuario eliminado con éxito!'}), 200
         except Exception as e:
             return jsonify({'message': str(e)}), 500
+        
+    @staticmethod
+    def count():
+        try:
+            count = UserService.count_employees()
+            return jsonify({'count': count}), 200
+        except Exception as e:
+            return jsonify({'message': str(e)}), 500

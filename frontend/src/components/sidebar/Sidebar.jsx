@@ -54,9 +54,9 @@ export default function Sidebar () {
               <span>Indicadores</span>
             </Link>
             <Link
-              to='/finance'
-              className={`link-sidebar ${activeLink === '/finance' ? 'active' : ''}`}
-              onClick={() => handleSetActiveLink('/finance')}
+              to='/stocks'
+              className={`link-sidebar ${activeLink === '/stocks' ? 'active' : ''}`}
+              onClick={() => handleSetActiveLink('/stocks')}
             >
               <i className='bi bi-map' />
               <span>Ind. Microeconomico</span>

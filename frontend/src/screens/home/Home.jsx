@@ -1,41 +1,67 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import Widget from '../../components/widget/Widget'
 import Featured from '../../components/featured/Featured'
 import Chart from '../../components/chart/Chart'
+import axios from 'axios'
 import Datatable from '../../components/datatable/Datatable'
-import dataOrders from '../../data/dataOrders'
+// import dataOrders from '../../data/dataOrders'
 import '../../styles/home.scss'
+import { API_URL } from '../../api/config'
 
 const dataOrdersColums = [
+  // {
+  //   name: 'Producto',
+  //   selector: row => <img className='image-product' src={row.imagen} alt={row.producto} />
+  // },
   {
-    name: 'Producto',
-    selector: row => <img className='image-product' src={row.imagen} alt={row.producto} />
-  },
-  {
-    name: 'Proveedor',
-    selector: row => row.proveedor,
+    name: 'Ciudad',
+    selector: row => row.Ciudad,
     sortable: true
   },
   {
     name: 'Fecha',
-    selector: row => row.fecha
+  selector: row => {
+    const date = new Date(row.Fecha);
+    // Formatear la fecha para obtener solo la parte de la fecha
+    const formattedDate = date.toLocaleDateString('en-GB', {
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric'
+    });
+    return formattedDate;
+  }
   },
   {
     name: 'Cantidad',
-    selector: row => row.cantidad_vendida
+    selector: row => row.Cantidad
   },
   {
-    name: 'Precio',
-    selector: row => <span>{`$ ${row.precio}`}</span>
+    name: 'Total',
+    selector: row => `$ ${row.precio_total}`
   },
-  {
-    name: 'Estado',
-    selector: row => <span className={`status ${row.estado}`}>{row.estado}</span>
-  }
+  // {
+  //   name: 'Estado',
+  //   selector: row => <span className={`status ${row.estado}`}>{row.estado}</span>
+  // }
 ]
 
 export default function Home () {
+  const [order, setOrders] = useState([])
+
+  useEffect(() => {
+    fetchUsers()
+  }, [])
+
+  const fetchUsers = async () => {
+    try {
+      const response = await axios.get(`${API_URL}/api/orders/`)
+
+      setOrders(response.data)
+    } catch (error) {
+      console.error('Error fetching users:', error)
+    }
+  }
   return (
     <div className='home'>
       <Container fluid className='homeContainer'>
@@ -64,10 +90,11 @@ export default function Home () {
         <Row className='list-container-home'>
           <Datatable
             title='Últimas órdenes realizadas'
-            data={dataOrders.orders}
+            data={order}
             columnsConfig={dataOrdersColums}
             noDataMessage='Aún no hay órdenes para mostrar'
             searchAttribute='proveedor'
+            selectableRows
           />
         </Row>
       </Container>

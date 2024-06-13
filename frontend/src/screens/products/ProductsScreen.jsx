@@ -34,11 +34,11 @@ export default function ProductScreen () {
         html: `
           <div class="swal-container">
             <input id="swal-input-category" class="swal2-input" placeholder="Category" value="${product.category}">
-            <input id="swal-input-cost" class="swal2-input" placeholder="Cost" value="${product.cost}">
+            <input id="swal-input-cost" class="swal2-input" placeholder="Cost" type='number' value="${product.cost}">
             <input id="swal-input-description" class="swal2-input" placeholder="Description" value="${product.description}">
             <input id="swal-input-name" class="swal2-input" placeholder="Name" value="${product.name}">
-            <input id="swal-input-price" class="swal2-input" placeholder="Price" value="${product.price}">
-            <input id="swal-input-stock" class="swal2-input" placeholder="Stock" value="${product.stock}">
+            <input id="swal-input-price" class="swal2-input" placeholder="Price" type='number' value="${product.price}">
+            <input id="swal-input-stock" class="swal2-input" placeholder="Stock" type='number' value="${product.stock}">
           </div>
         `,
         focusConfirm: false,

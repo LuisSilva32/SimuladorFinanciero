@@ -60,3 +60,12 @@ class UserService:
                 raise Exception("Usuario no encontrado")
         except Exception as e:
             raise Exception(f"¡Error al eliminar usuario!: {str(e)}")
+        
+    
+    @staticmethod
+    def count_employees():
+        try:
+            count = current_app.db.users.count_documents({})
+            return count
+        except Exception as e:
+            raise Exception(f"Error al contar empleados: {str(e)}")
