@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import '../../styles/resumeManagementScreen.scss'
+import '../../styles/products.scss'
 import Datatable from '../../components/datatable/Datatable'
 import axios from 'axios'
 import Swal from 'sweetalert2'
@@ -155,8 +155,15 @@ export default function ProductScreen () {
 
   return (
     <div className='container'>
-      <div className='list-container-resume-management-screen'>
-        <Datatable title='Gestionar Inventario' data={products} columnsConfig={dataProductColumns} />
+      <div className='list-container-product-screen'>
+        <Datatable
+          title='Gestionar inventario de productos'
+          data={products}
+          columnsConfig={dataProductColumns}
+          searchAttribute='name'
+          searchPlaceholder='Buscar productos...'
+          selectableRows
+        />
       </div>
     </div>
   )

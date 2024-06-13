@@ -45,4 +45,34 @@
     &:hover {
         box-shadow: 2px 4px 10px 1px rgba(207, 170, 170, 0.47);
     }
+
+    .status {
+      padding: 5px;
+      border-radius: 5px;
+
+      &.Activo {
+          color: #ffffff;
+          background-color: green;
+      }
+
+      &.Inactivo {
+          color: #ffffff;
+          background-color: goldenrod;
+      }
+
+      &.Despedido {
+        color: #ffffff;
+        background-color: crimson;
+      }
+  }
+
+  .viewButton {
+    color: #ffffff;
+    background-color: lightblue;
+  }
+
+  .deleteButton {
+    color: #ffffff;
+    background-color: crimson;
+  }
 }

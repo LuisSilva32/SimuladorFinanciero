@@ -187,7 +187,14 @@ export default function ResumeManagementScreen () {
   return (
     <Container className='container'>
       <div className='list-container-resume-management-screen'>
-        <Datatable title='Gestionar la hoja de vida de los empleados' data={users} columnsConfig={dataUserColumns} />
+        <Datatable
+          title='Gestionar la hoja de vida de los empleados'
+          data={users}
+          columnsConfig={dataUserColumns}
+          searchAttribute='fullName'
+          searchPlaceholder='Buscar empleados...'
+          selectableRows
+        />
       </div>
     </Container>
   )

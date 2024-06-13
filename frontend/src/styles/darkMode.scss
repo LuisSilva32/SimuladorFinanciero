@@ -149,11 +149,11 @@
 
                 .status {
                     &.Entregado {
-                        color: #4cceac;
+                        color: #ffffff;
                     }
 
                     &.Pendiente {
-                        color: rgb(178, 178, 0);
+                        color: #ffffff;
                     }
                 }
             }
@@ -167,25 +167,19 @@
 
         .header {
 
+            .title-table {
+                color: #ffffff;
+            }
+
             .search-container {
 
                 .bi {
                     color: #ffffff;
                 }
-            }
-        }
 
-        .status {
-            &.Activo {
-                color: #ffffff;
-            }
-
-            &.Despedido {
-                color: #ffffff;
-            }
-
-            &.Inactivo {
-                color: #ffffff;
+                .input::placeholder {
+                    color: #ffffff;
+                }
             }
         }
     }
@@ -221,6 +215,15 @@
             .formCheck label {
                 color: #ffffff;
             }
+        }
+    }
+
+    .list-container-product-screen {
+        box-shadow: none;
+        background-color: #1B2537;
+
+        &:hover {
+            box-shadow: none;
         }
     }
 

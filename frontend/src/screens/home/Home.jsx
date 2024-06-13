@@ -68,6 +68,7 @@ export default function Home () {
             columnsConfig={dataOrdersColums}
             noDataMessage='Aún no hay órdenes para mostrar'
             searchAttribute='proveedor'
+            searchPlaceholder='Buscar por proveedores...'
           />
         </Row>
       </Container>

@@ -36,13 +36,13 @@
                 border-radius: 5px;
 
                 &.Entregado {
-                    color: green;
-                    background-color: rgba(0, 128, 0, 0.151);
+                    color: #ffffff;
+                    background-color: green;
                 }
 
                 &.Pendiente {
-                    color: goldenrod;
-                    background-color: rgba(189, 189, 3, 0.103);
+                    color: #ffffff;
+                    background-color: goldenrod;
                 }
             }
         }

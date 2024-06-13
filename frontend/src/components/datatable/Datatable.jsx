@@ -5,7 +5,7 @@ import Loader from '../loader/Loader'
 import NoData from '../../assets/noData.png'
 import { DarkModeContext } from '../../context/darkModeReducer'
 
-export default function Datatable ({ data, columnsConfig, noDataMessage, title, searchAttribute, searchPlaceholder }) {
+export default function Datatable ({ data, columnsConfig, noDataMessage, title, searchAttribute, searchPlaceholder, selectableRows }) {
   const { darkMode } = useContext(DarkModeContext) // Consume el contexto
   const [columns, setColumns] = useState([])
   const [pending, setPending] = useState(true)
@@ -19,7 +19,7 @@ export default function Datatable ({ data, columnsConfig, noDataMessage, title, 
     }
   }, [data, columnsConfig])
 
-  function handleFilter (event, name) {
+  function handleFilter (event) {
     const searchValue = event.target.value.toLowerCase()
     const newData = data.filter(row => {
       return row[searchAttribute].toString().toLowerCase().includes(searchValue)
@@ -88,7 +88,7 @@ export default function Datatable ({ data, columnsConfig, noDataMessage, title, 
         noDataComponent={<img className='noData-img' src={NoData} /> || noDataMessage}
         pagination
         paginationPerPage={7}
-        selectableRows
+        selectableRows={selectableRows}
         fixedHeader
         theme={darkMode ? 'dark' : 'light'}
       />

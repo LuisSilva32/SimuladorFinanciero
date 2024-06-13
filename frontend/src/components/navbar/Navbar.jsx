@@ -21,13 +21,7 @@ export default function NavBar ({ handleShow }) {
             <i className='bi bi-moon-stars' onClick={() => dispatch({ type: 'TOGGLE' })} />
           </div>
           <div className='item'>
-            <i className='bi bi-arrows-angle-expand' />
-          </div>
-          <div className='item'>
             <i className='bi bi-bell' />
-          </div>
-          <div className='item'>
-            <i className='bi bi-chat' />
           </div>
           <div className='item-user'>
             <img
