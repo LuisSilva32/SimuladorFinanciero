@@ -32,7 +32,7 @@ Este simulador empresarial consta de 5 modulos, los cuales son:
 
 `<link>` : <https://github.com/LuisSilva32/SimuladorFinanciero.git>
 
-## Preparación del backend- Preparación del backend
+## Preparación del backend
 ###### Abrir una terminal y ubicarse en la carpeta "backend" con el comando
 
 `cd backend`
