@@ -1,6 +1,7 @@
 from flask import current_app
 from app.models.productModel import Product
 
+
 class ProductService:
     @staticmethod
     def getAllProducts():
@@ -49,3 +50,17 @@ class ProductService:
                 raise Exception("Producto no encontrado")
         except Exception as e:
             raise Exception(f"¡Error al eliminar Producto!: {str(e)}")
+        
+    @staticmethod
+    def count():
+        try:
+    
+        # Count the documents 
+            count = current_app.db.products.count_documents({})
+        
+            return count
+        except Exception as e:
+            raise Exception(f"Error al contar pedidos: {str(e)}")
+        
+    
+    

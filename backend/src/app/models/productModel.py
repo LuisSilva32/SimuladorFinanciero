@@ -21,7 +21,7 @@ class Product:
             'price': self.price,
             'stock': self.stock,
             'description': self.description,
-            'cost': self.cost,
+            'cost': int(self.cost),
             'state': self.state
         }
 

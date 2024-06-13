@@ -35,6 +35,10 @@ app.register_blueprint(user_bp, url_prefix='/api')
 from app.routes import product_bp
 app.register_blueprint(product_bp, url_prefix='/api')
 
+
+from app.routes import orders_bp
+app.register_blueprint(orders_bp, url_prefix='/api')
+
 # Iniciar la aplicación
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')

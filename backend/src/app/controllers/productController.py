@@ -60,3 +60,11 @@ class ProductController:
             return jsonify({'message': '¡Producto eliminado con éxito!'}), 200
         except Exception as e:
             return jsonify({'message': str(e)}), 500
+        
+    @staticmethod
+    def count():
+        try:
+            count = ProductService.count()
+            return jsonify({'count': count}), 200
+        except Exception as e:
+            return jsonify({'message': str(e)}), 500

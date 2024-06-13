@@ -13,6 +13,7 @@ import './styles/darkMode.scss'
 import { DarkModeContext } from './context/darkModeReducer'
 import ProductScreen from './screens/products/ProductsScreen'
 import NewProduct from './screens/newProducts/NewProduct'
+import StockDataManagementScreen from './screens/trade/trade'
 
 export default function App () {
   const [show, setShow] = useState(false)
@@ -38,6 +39,7 @@ export default function App () {
               <Route path='new-employee' element={<NewEmployeeScreen />} />
               <Route path='inventory' element={<ProductScreen />} />
               <Route path='new-product' element={<NewProduct />} />
+              <Route path='stocks' element={<StockDataManagementScreen />} />
             </Route>
           </Routes>
         </div>
