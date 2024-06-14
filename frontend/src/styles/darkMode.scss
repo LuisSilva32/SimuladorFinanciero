@@ -254,4 +254,34 @@
         }
     }
 
+    .custom-card {
+        background-color: #1B2537;
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: lightgray;
+            margin-bottom: 0.5rem;
+        }
+    
+        .card-subtitle {
+            font-size: 1rem;
+            color: gray;
+        }
+    
+        .card-text {
+            font-size: 1.2rem;
+            color: gray;
+            margin-top: 1rem;
+        }
+    }
+
+    .container-buttom {
+        .card-indicator {
+            background-color: #1B2537;
+            box-shadow: none;
+            color: lightgray;
+        }
+    }
+
 }

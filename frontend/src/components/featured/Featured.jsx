@@ -1,31 +1,25 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
-import '../../styles/featured.scss';
-import { DarkModeContext } from '../../context/darkModeReducer';
-import axios from 'axios';
-import { API_URL } from '../../api/config.js';
+import React, { useContext } from 'react'
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar'
+import 'react-circular-progressbar/dist/styles.css'
+import '../../styles/featured.scss'
+import { DarkModeContext } from '../../context/darkModeReducer'
+import axios from 'axios'
+import Storage from '../../context/Storage.jsx'
+import { API_URL } from '../../api/config.js'
+import Loader from '../loader/Loader.jsx'
+import NoData from '../../assets/noData.png'
 
-export default function Featured() {
-  const { darkMode } = useContext(DarkModeContext);
-  const [data, setData] = useState({
-    last_week_total: 0,
-    week_before_last_total: 0,
-    sales_difference: 0,
-    percentage_to_target: 0,
-  });
+const fetchFeaturedData = async () => {
+  const response = await axios.get(`${API_URL}/api/orders/salesdata`)
+  return response.data
+}
 
-  useEffect(() => {
-    const fetchdata = async ()=>{
-      try{
-        const response = await axios.get(`${API_URL}/api/orders/salesdata`)
-        setData(response.data);
-      }catch (error){
-        console.error('Error fetching sales data:', error);
-      } 
-    };
-    fetchdata();
-  }, []);
+export default function Featured () {
+  const { darkMode } = useContext(DarkModeContext)
+  const { data, loading, error } = Storage('featured', fetchFeaturedData)
+
+  if (loading) return <div><Loader /></div>
+  if (error) return <div><img className='noData-img' src={NoData} /></div>
 
   return (
     <div className='featured'>
@@ -38,8 +32,7 @@ export default function Featured() {
           <CircularProgressbar
             styles={darkMode
               ? buildStyles({ pathColor: '#4C51C8', textColor: '#4cceac' })
-              : buildStyles({ pathColor: '#CB4335', textColor: '#E74C3C' })
-            }
+              : buildStyles({ pathColor: '#CB4335', textColor: '#E74C3C' })}
             value={data.percentage_to_target}
             text={`${data.percentage_to_target.toFixed(1)}%`}
             strokeWidth={5}
@@ -68,5 +61,5 @@ export default function Featured() {
         </div>
       </div>
     </div>
-  );
+  )
 }

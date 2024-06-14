@@ -104,7 +104,7 @@ export default function NewProduct () {
                 <Form noValidate onSubmit={handleSubmit}>
                   <Row className='mb-3'>
                     <Form.Group as={Col} controlId='validationFormik01'>
-                      <Form.Label className='label-new-product-form'>Nombre del prodcuto</Form.Label>
+                      <Form.Label className='label-new-product-form'>Nombre del producto</Form.Label>
                       <Form.Control
                         type='text'
                         size='sm'

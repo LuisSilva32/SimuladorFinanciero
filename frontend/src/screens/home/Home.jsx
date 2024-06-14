@@ -21,16 +21,16 @@ const dataOrdersColums = [
   },
   {
     name: 'Fecha',
-  selector: row => {
-    const date = new Date(row.Fecha);
-    // Formatear la fecha para obtener solo la parte de la fecha
-    const formattedDate = date.toLocaleDateString('en-GB', {
-      day: '2-digit',
-      month: 'short',
-      year: 'numeric'
-    });
-    return formattedDate;
-  }
+    selector: row => {
+      const date = new Date(row.Fecha)
+      // Formatear la fecha para obtener solo la parte de la fecha
+      const formattedDate = date.toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric'
+      })
+      return formattedDate
+    }
   },
   {
     name: 'Cantidad',
@@ -39,7 +39,7 @@ const dataOrdersColums = [
   {
     name: 'Total',
     selector: row => `$ ${row.precio_total}`
-  },
+  }
   // {
   //   name: 'Estado',
   //   selector: row => <span className={`status ${row.estado}`}>{row.estado}</span>
@@ -80,10 +80,10 @@ export default function Home () {
           </Col>
         </Row>
         <Row className='charts-container'>
-          <Col className='' xs={12} md={12} lg={4}>
+          <Col className='' xs={12} md={12} lg={12} xl={4}>
             <Featured />
           </Col>
-          <Col className='col-chart' xs={12} md={12} lg={8}>
+          <Col className='col-chart' xs={12} md={12} lg={12} xl={8}>
             <Chart title='Últimos 6 meses (Ingresos)' aspect={2 / 1} />
           </Col>
         </Row>
@@ -94,11 +94,7 @@ export default function Home () {
             columnsConfig={dataOrdersColums}
             noDataMessage='Aún no hay órdenes para mostrar'
             searchAttribute='proveedor'
-<<<<<<< HEAD
             searchPlaceholder='Buscar por proveedores...'
-=======
-            selectableRows
->>>>>>> german
           />
         </Row>
       </Container>

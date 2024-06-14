@@ -30,7 +30,6 @@ export default function Sidebar () {
         <div className='containerCenter'>
           <ul>
             <p className='title'>
-
               Sitema de apoyo
             </p>
             <Link
@@ -42,7 +41,6 @@ export default function Sidebar () {
               <span>Dashboard</span>
             </Link>
             <p className='title'>
-
               Simuladore Financiero
             </p>
             <Link
@@ -62,7 +60,6 @@ export default function Sidebar () {
               <span>Ind. Microeconomico</span>
             </Link>
             <p className='title'>
-
               Talento Humano
             </p>
             <Link
@@ -90,7 +87,6 @@ export default function Sidebar () {
               <span>Pago de nomina</span>
             </Link>
             <p className='title'>
-
               Recursos Empresariales (ERP)
             </p>
             <Link
@@ -106,7 +102,7 @@ export default function Sidebar () {
               className={`link-sidebar ${activeLink === '/new-product' ? 'active' : ''}`}
               onClick={() => handleSetActiveLink('/new-product')}
             >
-              <i class='bi bi-bag-check' />
+              <i className='bi bi-bag-check' />
               <span>Agregar producto</span>
             </Link>
             <Link to='/crm' className='link-sidebar'>
@@ -114,7 +110,6 @@ export default function Sidebar () {
               <span>Proveedores</span>
             </Link>
             <p className='title'>
-
               Relación con el Cliente (CRM)
             </p>
             <Link to='/erp' className='link-sidebar'>
@@ -126,7 +121,6 @@ export default function Sidebar () {
               <span>Promociones</span>
             </Link>
             <p className='title'>
-
               Opciones
             </p>
           </ul>

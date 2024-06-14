@@ -14,9 +14,8 @@ export default function ProductScreen () {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get(`${API_URL}/api/products`) // Asegúrate de que esta URL sea correcta
+      const response = await axios.get(`${API_URL}/api/products`)
       console.log(response.data)
-
       setProducts(response.data)
     } catch (error) {
       console.error('Error fetching products:', error)
@@ -31,14 +30,35 @@ export default function ProductScreen () {
         confirmButtonText: 'Actualizar',
         cancelButtonText: 'Regresar',
         reverseButtons: true,
+        customClass: {
+          popup: 'wide-swal-popup'
+        },
         html: `
           <div class="swal-container">
-            <input id="swal-input-category" class="swal2-input" placeholder="Category" value="${product.category}">
-            <input id="swal-input-cost" class="swal2-input" placeholder="Cost" type='number' value="${product.cost}">
-            <input id="swal-input-description" class="swal2-input" placeholder="Description" value="${product.description}">
-            <input id="swal-input-name" class="swal2-input" placeholder="Name" value="${product.name}">
-            <input id="swal-input-price" class="swal2-input" placeholder="Price" type='number' value="${product.price}">
-            <input id="swal-input-stock" class="swal2-input" placeholder="Stock" type='number' value="${product.stock}">
+            <div class="swal-input-group">
+              <label for="swal-input-name">Nombre:</label>
+              <input id="swal-input-name" class="swal2-input" placeholder="Nombre" value="${product.name}">
+            </div>
+            <div class="swal-input-group">
+              <label for="swal-input-category">Categoria:</label>
+              <input id="swal-input-category" class="swal2-input" placeholder="Categoria" value="${product.category}">
+            </div>
+            <div class="swal-input-group">
+              <label for="swal-input-price">Precio:</label>
+              <input id="swal-input-price" class="swal2-input" placeholder="Precio" value="${product.price}">
+            </div>
+            <div class="swal-input-group">
+              <label for="swal-input-stock">Stock:</label>
+              <input id="swal-input-stock" class="swal2-input" placeholder="Stock" value="${product.stock}">
+            </div>
+            <div class="swal-input-group">
+              <label for="swal-input-description">Descripción:</label>
+              <input id="swal-input-description" class="swal2-input" placeholder="Descripción" value="${product.description}">
+            </div>
+            <div class="swal-input-group">
+              <label for="swal-input-cost">Costo:</label>
+              <input id="swal-input-cost" class="swal2-input" placeholder="Costo" value="${product.cost}">
+            </div>
           </div>
         `,
         focusConfirm: false,
@@ -49,30 +69,28 @@ export default function ProductScreen () {
             description: document.getElementById('swal-input-description').value,
             name: document.getElementById('swal-input-name').value,
             price: document.getElementById('swal-input-price').value,
-            stock: document.getElementById('swal-input-stock').value
+            stock: parseInt(document.getElementById('swal-input-stock').value, 10)
           }
         }
       })
 
       if (formValues) {
-        console.log('Updated Product Information:', formValues)
-        // Aquí puedes manejar la actualización del usuario, por ejemplo, enviando los datos al servidor
-        axios.put(`${API_URL}/api/products/update/${product._id}`, formValues)
-          .then(() => {
-            Swal.fire({
-              title: '¡Actualizado!',
-              text: 'La información del producto ha sido actualizada.',
-              icon: 'success'
-            })
-            fetchProducts()
-          })
-          .catch((error) => {
-            Swal.fire({
-              title: 'Error',
-              text: error.message,
-              icon: 'error'
-            })
-          })
+        const productState = formValues.stock === 0 ? 'Agotado' : 'Disponible'
+
+        const updatedProduct = {
+          ...formValues,
+          state: productState
+        }
+
+        console.log('Updated Product Information:', updatedProduct)
+
+        await axios.put(`${API_URL}/api/products/update/${product._id}`, updatedProduct)
+        Swal.fire({
+          title: '¡Actualizado!',
+          text: 'La información del producto ha sido actualizada.',
+          icon: 'success'
+        })
+        fetchProducts()
       }
     } catch (error) {
       Swal.fire({
@@ -123,7 +141,7 @@ export default function ProductScreen () {
   const dataProductColumns = [
     {
       name: 'Imagen',
-      selector: row => <img className='avatar' src={row.img} />
+      selector: row => <img className='avatar' src={row.img} alt={row.name} />
     },
     {
       name: 'Nombre',

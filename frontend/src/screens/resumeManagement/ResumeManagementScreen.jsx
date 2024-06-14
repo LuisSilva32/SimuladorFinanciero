@@ -62,7 +62,11 @@ export default function ResumeManagementScreen () {
             </div>
             <div class="swal-input-group">
               <label for="swal-input-state">Estado:</label>
-              <input id="swal-input-state" class="swal2-input" placeholder="State" value="${user.state}">
+              <select id="swal-input-state" class="swal2-input">
+              <option value="Activo" ${user.state === 'Activo' ? 'selected' : ''}>Activo</option>
+              <option value="Inactivo" ${user.state === 'Inactivo' ? 'selected' : ''}>Inactivo</option>
+              <option value="Despedido" ${user.state === 'Despedido' ? 'selected' : ''}>Despedido</option>
+            </select>
             </div>
             <div class="swal-input-group">
               <label for="swal-input-post">Cargo:</label>

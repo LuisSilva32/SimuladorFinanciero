@@ -1,20 +1,42 @@
-.slider-container {
-    object-fit: contain;
+/* src/styles/slider.scss */
+.slider-wrapper {
+    position: relative;
     width: 100%;
-    background-color: #ffffff;
-    height: 300px;
-    border-radius: 8px;
+  }
+  
+  .slider-container {
+    width: 100%;
+  }
+  
+  .card-wrapper {
+    display: flex;
+    justify-content: space-between; /* Espacio entre las cards */
+    height: 350px;
+  }
+  
+  .card-wrapper .custom-card {
+    flex: 1 0 18%; /* Ajusta el ancho de las cards para que quepan 5 en una fila */
+    margin-right: 1rem; /* Espacio entre las cards */
+    border: none;
+  }
 
-    .slider-img {
-        width: 300px;
-        margin-left: 120px;
-    }
-
-    .info {
-        font-weight: bold;
-
-        h2 {
-            font-size: 32px;
-        }
-    }
-}
+  .card-wrapper .custom-card:first-child {
+    margin-left: 1rem; /* Espacio antes de la primera card */
+  }
+  
+  .card-wrapper .custom-card:last-child {
+    margin-right: 1rem; /* Espacio después de la última card */
+  }
+  
+  .carousel-control-prev, .carousel-control-next {
+    width: 5%; /* Ajusta el ancho de los botones de navegación */
+  }
+  
+  .carousel-control-prev {
+    left: -7% !important; /* Ajusta la posición del botón prev */
+  }
+  
+  .carousel-control-next {
+    right: -7% !important; /* Ajusta la posición del botón next */
+  }
+  
